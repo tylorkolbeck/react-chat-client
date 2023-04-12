@@ -1,0 +1,43 @@
+.chat-box {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 4px;
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+.message-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.message {
+  color: white;
+  max-width: 200px;
+  border-radius: 2px;
+  padding: 6px;
+}
+
+.message-avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid dodgerblue;
+  background: #eee;
+  color: rgb(63, 63, 63);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px; 
+}
+
+.message.received {
+  background: #eee;
+  color: black;
+}
+
+.message.sent {
+  background: #4C7DFE;
+  color: white;
+}

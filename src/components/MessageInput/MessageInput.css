@@ -1,0 +1,29 @@
+.message-input-wrapper {
+  display: flex;
+  padding: 10px;
+}
+
+.message-input-wrapper button {
+  border: none;
+  border-radius: 16px;
+  background: #4c7dfe;
+  width: 100px;
+  color: white;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.message-input-wrapper button:hover {
+  background: #3a5f9b;
+}
+
+.message-input-wrapper input {
+  width: 100%;
+  padding: 20px;
+  height: 20px;
+  font-size: 1.2rem;
+  border-radius: 16px;
+  background-color: #eee;
+  border: none;
+  outline: none;
+}
