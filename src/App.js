@@ -13,19 +13,6 @@ const DATA = {
     MESSAGE: 1,
   },
 };
-// const {
-//   sendMessage,
-//   sendJsonMessage,
-//   lastMessage,
-//   lastJsonMessage,
-//   readyState,
-//   getWebSocket,
-// } = useWebSocket('ws://192.168.1.170:9002', {
-//   onOpen: () => {
-//     sendMessage("Hello from the client");
-//   },
-//   shouldReconnect: (closeEvent) => true,
-// });
 
 const dummyMessages = [
   // generate 100 dummy message with random sender and time and message
@@ -61,7 +48,7 @@ function App() {
       setIsConnected(true);
     },
     onMessage: ({ data }) => {
-      if (data == "REGISTERED") {
+      if (data === "REGISTERED") {
         setIsRegistered(true);
         return;
       }
@@ -70,22 +57,6 @@ function App() {
     },
     shouldReconnect: (closeEvent) => true,
   });
-
-  useEffect(() => {
-    if (websocket) {
-      websocket.addEventListener("open", () => {
-        setIsConnected(true);
-      });
-
-      websocket.addEventListener("message", (event) => {
-        setMessage(event);
-      });
-    }
-  }, [websocket]);
-
-  const onNameChangedHandler = (e) => {
-    setName(e.target.value);
-  };
 
   const onRegisterHandler = (event) => {
     sendJsonMessage({
@@ -103,6 +74,13 @@ function App() {
     event.preventDefault();
     sendJsonMessage({ type: DATA.TYPE.MESSAGE, message: userMsg, user: name });
   };
+
+  function loginHandler(username) {
+    setName(username);
+    sendJsonMessage({ type: DATA.TYPE.REGISTER, user: name });
+
+
+  }
 
   return (
     <div className="app-wrapper">
@@ -126,7 +104,7 @@ function App() {
           {/* <p>Input Message:</p>
           <input onChange={messageChangedHandler}></input>
           <button onClick={sendClickHandler}>Send</button> */}
-          {registered ? (<><ChatBox messages={messages} senderName="Tylor"/> <MessageInput /></>) : <Login />}
+          {registered ? (<><ChatBox messages={messages} senderName={name}/> <MessageInput /></>) : <Login onLogin={loginHandler}/>}
           
           
      

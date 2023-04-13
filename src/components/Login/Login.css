@@ -4,6 +4,13 @@
 }
 
 .login-wrapper input {
+  margin-bottom: 1rem;
+}
+.login-wrapper button {
+  float: right;
+}
+
+.login-wrapper input {
   width: 100%;
   padding: 20px;
   font-size: 1.2rem;
